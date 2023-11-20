@@ -17,11 +17,13 @@ if ! grep dwc2 /etc/modules; then
   echo "dwc2" >> /etc/modules
 fi
 
+apt install -y python3-evdev
+
 ENABLE_RPI_HID_PATH=/opt/enable-rpi-hid
 ENABLE_RPI_HID_DIR=$(dirname $ENABLE_RPI_HID_PATH)
 
 mkdir -p "$ENABLE_RPI_HID_DIR"
-wget https://raw.githubusercontent.com/mtlynch/ansible-role-key-mime-pi/master/files/enable-rpi-hid \
+wget https://raw.githubusercontent.com/geckoflume/bt-hid-proxy/master/enable-rpi-hid \
   -O "$ENABLE_RPI_HID_PATH"
 chmod +x "$ENABLE_RPI_HID_PATH"
 

@@ -1,12 +1,11 @@
 import os
 import time
 from evdev import InputDevice, categorize, ecodes
-from enum import Enum
 
 from keys import modifiers, scan_to_hid
 
 # The virtual device to listen input from
-device_path = os.environ.get("DEVICE_PATH", "/dev/input/event0")
+device_path = os.environ.get("DEVICE_PATH", "/dev/input/event1")
 
 # Location of HID file handle in which to write keyboard HID input.
 hid_path = os.environ.get("HID_PATH", "/dev/hidg0")
